@@ -24,7 +24,7 @@ const Cart = ({ useCart: { cartOpen, setCartOpen } }) => {
       <Typography variant="h6" sx={{ pt: 3 }}>
         <Box className="flex flex-row justify-between items-center pt-3">
           Total: $30.00
-          <Button component="a" className="text-lg" variant="outlined" href="./checkout">Ir a Pagar</Button>
+          <Button component="a" className="text-lg" variant="outlined" href="/portal/checkout">Ir a Pagar</Button>
         </Box>
       </Typography>
     </Container>

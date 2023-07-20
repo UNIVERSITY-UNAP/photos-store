@@ -1,12 +1,7 @@
-'use client'
-import Chart from "@/components/dashboardUser/Chart"
-import Deposits from "@/components/dashboardUser/Deposits"
-import { Box, Container, Grid, Paper, Toolbar } from "@mui/material"
-import ContentList from "@/components/dashboardUser/ContentList"
 import OrdersFree from "@/components/dashboard/OrdersFree"
-import Orders from "@/components/dashboard/Orders"
+import { Box, Container, Grid, Paper, Toolbar } from "@mui/material"
 
-const Page = () => {
+const freeListPage = () => {
   return (
     <Box component="main"
       sx={{
@@ -19,7 +14,7 @@ const Page = () => {
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }} >
-              <Orders />
+              <OrdersFree />
             </Paper>
           </Grid>
         </Grid>
@@ -28,4 +23,4 @@ const Page = () => {
     </Box>
   )
 }
-export default Page
+export default freeListPage

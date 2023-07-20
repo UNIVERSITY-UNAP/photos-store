@@ -1,7 +1,8 @@
 'use client'
 
 import { Facebook } from "@mui/icons-material"
-import Link from "next/link"
+// import Link from "next/link"
+import { Link } from "@mui/material"
 import { FaFacebook, FaFacebookF, FaInstagram, FaInstagramSquare, FaLinkedin, FaLinkedinIn, FaTwitter, FaTwitterSquare, FaYoutube } from "react-icons/fa"
 import Copyright from "./Copyright"
 
@@ -28,16 +29,16 @@ const Footer = () => {
         <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">
           {/* Col Title */}
           <div className="text-xs uppercase text-gray-400 font-medium mb-6">
-            About
+            Acerca de
           </div>
           <Link href="/" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-            Home
+            Inicio
           </Link>
           <Link href="/about" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-            About Us
+            Sobre nosotros
           </Link>
           <Link href="/contact" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-            Contact Us
+            Contáctanos
           </Link>
         </div>
         {/* Col-3 */}
@@ -46,10 +47,10 @@ const Footer = () => {
             Legal
           </div>
           <a href="/terms" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-            Terms of Service
+            Términos del Servicio
           </a>
           <a href="/privacy" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-            Privacy Policy
+            Política y Privacidad
           </a>
         </div>
       </div>

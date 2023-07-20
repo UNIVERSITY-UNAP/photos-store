@@ -5,14 +5,16 @@ import {
   Container,
   Box, Button,
   IconButton,
+  Link,
   Menu, MenuItem,
   Toolbar, Tooltip, Typography, Badge,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useState } from 'react';
-import { ShoppingCart } from '@mui/icons-material';
-import Link from 'next/link';
+import { Camera as CameraIcon, ShoppingCart } from '@mui/icons-material';
+import MonochromePhotosIcon from '@mui/icons-material/MonochromePhotos';
+// import Link from 'next/link';
 
 const pages = [
   {
@@ -49,7 +51,7 @@ const settings = [
   }
 ]
 
-function Navbar({ useBadge: { cartOpen = null, setCartOpen = null} }) {
+function Navbar({ useBadge: { cartOpen = null, setCartOpen = null } }) {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -72,23 +74,24 @@ function Navbar({ useBadge: { cartOpen = null, setCartOpen = null} }) {
     <AppBar position="sticky">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          <CameraIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/portal"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            BioSnap
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -127,36 +130,37 @@ function Navbar({ useBadge: { cartOpen = null, setCartOpen = null} }) {
                   </Link>
                 </MenuItem>
               ))}
-              <MenuItem key={'shoppingCart'} onClick={() => { setCartOpen(true); handleCloseNavMenu() }}>
+              {/* <MenuItem key={'shoppingCart'} onClick={() => { setCartOpen(true); handleCloseNavMenu() }}>
                 <Badge badgeContent={4} color="secondary">
                   <ShoppingCart className="text-slate-600" />
                 </Badge>
-              </MenuItem>
+              </MenuItem> */}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+          <CameraIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/portal"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            BioSnap
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                component="a"
+                // component="button"
                 key={page.name}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -166,14 +170,19 @@ function Navbar({ useBadge: { cartOpen = null, setCartOpen = null} }) {
               </Button>
             ))}
             {/* <MenuItem key={'shoppingCart'} onClick={() => setCartOpen(true)}> */}
-            <Button key={'shoppingCart'} color="inherit" onClick={() => setCartOpen(true)}>
+            {/* <Button key={'shoppingCart'} color="inherit" onClick={() => setCartOpen(true)}>
               <Badge badgeContent={4} color="secondary">
                 <ShoppingCart />
               </Badge>
-            </Button>
+            </Button> */}
             {/* </MenuItem > */}
           </Box>
 
+          <MenuItem key={'shoppingCart'} onClick={() => { setCartOpen(true); handleCloseNavMenu() }}>
+            <Badge badgeContent={4} color="secondary">
+              <ShoppingCart color="inherit" />
+            </Badge>
+          </MenuItem>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -203,6 +212,7 @@ function Navbar({ useBadge: { cartOpen = null, setCartOpen = null} }) {
               ))}
             </Menu>
           </Box>
+
         </Toolbar>
       </Container>
     </AppBar>

@@ -12,6 +12,7 @@ import {
   Toolbar, Typography, Menu, MenuItem, Button, Tooltip, Avatar,
 } from '@mui/material';
 import {
+  Camera as CameraIcon,
   ChevronLeft as ChevronLeftIcon,
   Menu as MenuIcon,
   Notifications as NotificationsIcon,
@@ -146,7 +147,8 @@ const Layout = ({ children }) => {
               >
                 <MenuIcon />
               </IconButton>
-              <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+              {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+              <CameraIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
               <Typography
                 variant="h6"
                 noWrap
@@ -157,12 +159,12 @@ const Layout = ({ children }) => {
                   display: { xs: 'none', md: 'flex' },
                   fontFamily: 'monospace',
                   fontWeight: 700,
-                  letterSpacing: '.3rem',
+                  letterSpacing: '.1rem',
                   color: 'inherit',
                   textDecoration: 'none',
                 }}
               >
-                LOGO
+                BioSnap
               </Typography>
 
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -208,7 +210,8 @@ const Layout = ({ children }) => {
                   </MenuItem> */}
                 </Menu>
               </Box>
-              <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+              {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+              <CameraIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
               <Typography
                 variant="h5"
                 noWrap
@@ -220,12 +223,12 @@ const Layout = ({ children }) => {
                   flexGrow: 1,
                   fontFamily: 'monospace',
                   fontWeight: 700,
-                  letterSpacing: '.3rem',
+                  letterSpacing: '.1rem',
                   color: 'inherit',
                   textDecoration: 'none',
                 }}
               >
-                LOGO
+                BioSnap
               </Typography>
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {pages.map((page) => (
@@ -271,7 +274,7 @@ const Layout = ({ children }) => {
                   onClose={handleCloseUserMenu}
                 >
                   {settings.map((setting) => (
-                    <MenuItem key={setting.name} onClick={handleCloseUserMenu} component="a" href={`${setting.href}`}>
+                    <MenuItem key={setting.name} onClick={handleCloseUserMenu} component="a" href={`/portal/${setting.href}`}>
                       <Typography textAlign="center">{setting.name}</Typography>
                     </MenuItem>
                   ))}

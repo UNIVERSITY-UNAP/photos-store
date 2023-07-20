@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Divider,
   Link,
   Paper,
   Switch,
@@ -12,7 +13,8 @@ import {
   styled
 } from '@mui/material/styles'
 import Title from './Title';
-import { green, orange, red, yellow } from '@mui/material/colors';
+import { green, lime, orange, red, yellow } from '@mui/material/colors';
+import { CheckCircle as CheckCircleIcon, Check as CheckIcon } from '@mui/icons-material';
 
 // Generate Order Data
 const createData = (id, date, name, shipTo, paymentMethod, amount) => {
@@ -62,23 +64,33 @@ const preventDefault = (e) => {
 const orders = [
   {
     title: "Pedido de sesión fotográfica",
-    description: "Se necesita una sesión fotográfica para un matrimonio",
-    status: 0
+    description: "Se necesita una sesión fotográfica para un matrimonio...",
+    status: 0,
+    by: undefined,
   },
   {
     title: "Pedido de fotografía personalizada",
-    description: "Quisiera una fotografía de el lago Titicaca en su estado actual, quiero mostrar la contaminación",
-    status: 1
+    description: "Quisiera una fotografía de el lago Titicaca en su estado actual, quiero mostrar la contaminación...",
+    status: 1,
+    by: "Omar Mamani",
   },
   {
     title: "Pedido 3",
     description: "Descripcion de pedido 3",
-    status: 2
+    status: 2,
+    by: "Omar Mamani",
   },
   {
     title: "Pedido 4",
     description: "Descripcion de pedido 4",
-    status: 3
+    status: 3,
+    by: "Omar Mamani",
+  },
+  {
+    title: "Pedido 5",
+    description: "Descripcion de pedido 5",
+    status: 4,
+    by: "Omar Mamani",
   },
 ]
 const Item = styled(Paper)(({ theme, bgCol }) => ({
@@ -123,23 +135,33 @@ export default function Orders() {
             <Card key={idx} sx={{ mb: 2 }} component={Paper}>
               <CardContent sx={{
                 display: "flex",
-                // justifyContent: "space-between",
+                justifyContent: "space-between",
                 alignItems: 'center',
                 flexWrap: 'wrap'
               }}>
 
-                <Box sx={{ minWidth: "80%" }}>
+                {/* <Box sx={{ minWidth: "70%" }}> */}
+                <Box >
                   <Typography>
                     {`${idx + 1}. ${item.title}`}
                   </Typography>
                   <Typography align="left" sx={{ width: "100%" }} variant={'caption'} color="text.secondary">
                     {item.description}
                   </Typography>
+                  {item.by !== undefined &&
+                    <>
+                      <Divider sx={{marginTop: 1}} />
+                      <Typography align="left" sx={{ width: "100%" }} variant={'caption'} color="text.secondary">
+                        A cargo de: <Link>{item.by}</Link>
+                      </Typography>
+                    </>
+                  }
                 </Box>
-                {(item.status === 0) ? <Item sx={{ ml: 'auto' }} bgCol={red[500]}>Aun no aceptado</Item> : undefined}
-                {(item.status === 1) ? <Item sx={{ ml: 'auto' }} bgCol={orange[400]}>Aceptado, en proceso</Item> : undefined}
-                {(item.status === 2) ? <Item sx={{ ml: 'auto' }} bgCol={yellow[600]}>Entregando producto</Item> : undefined}
-                {(item.status === 3) ? <Item sx={{ ml: 'auto' }} bgCol={green[500]}>Finalizado</Item> : undefined}
+                {(item.status === 0) ? <Item bgCol={red[500]}>Esperando Aceptacion</Item> : undefined}
+                {(item.status === 1) ? <div className='flex items-center'><Item bgCol={orange[400]}>Aceptado</Item><Link marginLeft={2} href='/portal/checkout'>Ir a Pagar!</Link></div> : undefined}
+                {(item.status === 2) ? <div className='flex items-center'><Item sx={{ ml: '2' }} bgCol={orange[400]}>Realizando pedido</Item><Link className='flex items-center' marginLeft={2} ><CheckCircleIcon />Pagado</Link></div> : undefined}
+                {(item.status === 3) ? <Item bgCol={lime[600]}>Enviando producto</Item> : undefined}
+                {(item.status === 4) ? <Item bgCol={green[500]}>Finalizado</Item> : undefined}
               </CardContent>
             </Card>
           ))

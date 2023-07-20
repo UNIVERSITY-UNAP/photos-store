@@ -21,12 +21,6 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItemButton>
-    <ListItemButton href="/photographer/list">
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Pedidos Asignados" />
-    </ListItemButton>
     <ListItemButton href="/photographer/clients">
       <ListItemIcon>
         <PeopleIcon />
@@ -47,17 +41,23 @@ export const secondaryListItems = (
     <ListSubheader component="div" inset>
       Pedidos
     </ListSubheader>
-    <ListItemButton href="/photographer/freeOrders">
+    <ListItemButton href="/photographer/list">
+      <ListItemIcon>
+        <AssignmentIcon />
+      </ListItemIcon>
+      <ListItemText primary="Pedidos Asignados" />
+    </ListItemButton>
+    <ListItemButton href="/photographer/freeList">
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Pedidos Libres" />
     </ListItemButton>
-    <ListItemButton href="/photographer/inProcessOrders">
+    <ListItemButton href="/photographer/processList">
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Pedidos Proceso" />
+      <ListItemText primary="Pedidos Caducados" />
     </ListItemButton>
   </>
 );
